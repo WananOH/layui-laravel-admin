@@ -16,7 +16,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">登录邮箱</label>
             <div class="layui-input-block">
-                <input type="text" name="email" required  lay-verify="email" placeholder="请输入登录邮箱" autocomplete="off" class="layui-input">
+                <input type="text" name="email" required  placeholder="请输入登录邮箱" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">

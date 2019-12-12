@@ -23,6 +23,7 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a onclick="admin.openLayerForm('{{ route("admin.change-password-form") }}', '修改密码', 'PATCH', '500px', '300px')">修改密码</a></dd>
+                    <dd><a onclick="admin.openLayerForm('{{ route("admin.change-seatid") }}', '修改坐席', 'PATCH', '500px', '300px')">修改坐席</a></dd>
                     <dd><a href="{{ route("admin.logout") }}">退出登录</a></dd>
                 </dl>
             </li>
@@ -44,9 +45,10 @@
                             </dl>
                         </li>
                         @else
-                        <li class="layui-nav-item"><a href="{{ $topNav['uri'] }}">{{ $topNav['name'] }}</a></li>
+                        <li class="layui-nav-item @if($topNav['uri'] == '/'.request()->path()) layui-nav-current @endif" ><a href="{{ $topNav['uri'] }}">{{ $topNav['name'] }}</a></li>
                     @endif
                 @endforeach
+
             </ul>
         </div>
     </div>
@@ -65,21 +67,20 @@
         </div>
     </div>
 
-    <div class="layui-footer">
-        ©
-        <a href="https://github.com/moell-peng/laravel-layui-admin" target="_blank">
-            moell/laravel-layui-admin
-        </a>
-    </div>
+
 </div>
 <script src="{{ asset('vendor/laravel-layui-admin/lib/layui/layui.js') }}"></script>
 <script src="{{ asset('vendor/laravel-layui-admin/js/admin.js') }}"></script>
+<script src="{{ asset('vendor/laravel-layui-admin/js/jquery.min.js') }}"></script>
+{{--<script src="{{ asset('/js/jquery-3.0.0.min.js') }}"></script>--}}
 @yield("script")
 <script>
   //JavaScript代码区域
   layui.use('element', function(){
     var element = layui.element;
   });
+
+  $('ul.layui-nav li .layui-this').parent().parent().addClass('layui-nav-itemed')
 </script>
 </body>
 </html>

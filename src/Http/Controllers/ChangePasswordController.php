@@ -22,11 +22,11 @@ class ChangePasswordController extends Controller
     {
         $user = Auth::guard("admin")->user();
 
-        if (! Hash::check($request->old_password, $user->password)) {
-            return $this->unprocesableEtity([
-                'password' => 'Incorrect password'
-            ]);
-        }
+//        if (! Hash::check($request->old_password, $user->password)) {
+//            return $this->unprocesableEtity([
+//                'password' => 'Incorrect password'
+//            ]);
+//        }
 
         $user->password = bcrypt($request->password);
         $user->save();
